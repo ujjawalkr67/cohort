@@ -28,11 +28,51 @@
 
 // ujjawalReadFiles().then(onDone)
 
-const GITHUB_API ="https://api.github.com/users/ujjawalkr67"
-const user = fetch(GITHUB_API) //fetch is a type of promise
-console.log(user)
+// const GITHUB_API ="https://api.github.com/users/ujjawalkr67"
+// const user = fetch(GITHUB_API) //fetch is a type of promise
+// console.log(user)
  //attachong callback to promise 
 // user.then(function(data){
 //     console.log(data)
 // })
 
+// create a promise
+const cart =["shoes","pants","kurta"];
+const promise = createoder(cart); //orderid
+
+promise.then(function(){
+    console.log("success")
+    // proceedtopayment(orderId);
+})
+.catch(function(err){
+    console.log(err.message)
+})
+
+
+//code for createoders
+function createoder(cart){
+    const pr = new Promise(function(resolve,reject){
+        //createoder
+        //validatecart
+        //orderid
+        if(!validateCart(cart)){
+            const err =new Error("cart is empty")
+            reject(err);
+        }
+        //logic for createoder and orderid
+        const orderId="1234"
+        if(orderId){
+            setTimeout(() => {
+                
+                resolve(orderId)
+            }, 5000);
+        }
+    });
+    return pr;
+}
+function validateCart(cart)
+{
+    // return true;
+    return false;
+
+}
