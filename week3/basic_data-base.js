@@ -7,7 +7,7 @@ app.use(express.json())
 
 const mongoose=require("mongoose")
 
-mongoose.connect('mongodb+srv://admin:EWetFQKhuQl6cmdo@cluster0.znad7af.mongodb.net/')
+//mongoose.connect('mongodb+srv://admin:EWetFQKhuQl6cmdo@cluster0.znad7af.mongodb.net/')
 
 const User = mongoose.model('Users', { name: String ,email: String,password:String});
 
