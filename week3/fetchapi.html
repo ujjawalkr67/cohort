@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //function getAnimaLData(){
+        //     // alert("hii")
+        //     //this will send a get request
+        // //   const response= fetch("https://fakerapi.it/api/v1/persons");
+        //    //console.log(response)
+        //    fetch("https://fakerapi.it/api/v1/persons")
+        //    .then(function(response){
+        //     response.json()
+        //     .then(function(finaldata){
+
+        //         console.log(finaldata)
+        //     })
+        //    })
+        //  }
+
+         //using async and await functon
+        async function getAnimaLData(){
+         const response= await  fetch("https://fakerapi.it/api/v1/persons")
+         const finaldata=await response.json()
+        console.log(finaldata)
+
+        }
+    </script>
+    <button onclick="getAnimaLData()"> Get AnimaL Data</button>
+</body>
+</html>
