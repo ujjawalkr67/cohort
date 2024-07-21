@@ -8,19 +8,23 @@ const app = express();
 const schema=zod.array(zod.number())
 app.use(express.json());
 
-app.post('/health-checkup',function(req,res) {
-    const kidney=req.body.kidney;
-    const response = schema.safeParse(kidney)
-    // const kidneylength=kidney.length;
-    if(!response.success){
-        res.status(411).json({
-            msg:"input is invalid"
-        })
-    }
-    else{
+function validateinput(obj){
+    const schema=zod.object({
+        email:zod.string().email(),
+        password:zod.string().min(8)
+    })
+    const response=schema.safeParse(obj);
+    console.log(response);
+}
 
-        res.send({response})
-    }
-
-});
+// this is valid 
+validateinput({
+    email:"ujju@gmail.com",
+    password:"12345678"
+})
+//this will giveerror as it is not ture email id
+validateinput({
+    email:"ujjucom",
+    password:"12345678"
+})
 app.listen(3001)
